@@ -1,5 +1,9 @@
 # Android-PopUp-Window-and-Changing-Variables
 
++add your images in drawable folder like; img1, img2, img3, ..., img(n).
++create a xml file and add components you want.
++manipulate your popup window components as the example below.
+
         import java.util.Random;
         import android.widget.Button;
         import android.view.LayoutInflater;
@@ -8,6 +12,8 @@
         import android.view.Window;
         
         ...
+        
+        Button iBLogo = (Button) findViewById(R.id.ButtonId);
 
         iBLogo.setOnClickListener(new View.OnClickListener(){
             @Override
