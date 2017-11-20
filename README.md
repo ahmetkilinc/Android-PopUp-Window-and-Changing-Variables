@@ -14,8 +14,23 @@
                         DrawerLayout.LayoutParams.FILL_PARENT,
                         DrawerLayout.LayoutParams.FILL_PARENT);
 
+                ConstraintLayout clk = (ConstraintLayout) popupView.findViewById(R.id.clNew);
                 TextView popupText = (TextView) popupView.findViewById(R.id.textViewPop);
+                ImageView popupImage = (ImageView) popupView.findViewById(R.id.imageViewPop);
+
+                clk.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        popupWindow.dismiss();
+                    }
+                });
+
+                popupImage.setImageResource(R.drawable.ic_launcher);
+
                 popupText.setText("hello");
+
+
 
                 /*
                 Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
