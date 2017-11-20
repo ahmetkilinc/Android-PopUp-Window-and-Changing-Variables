@@ -1,5 +1,14 @@
 # Android-PopUp-Window-and-Changing-Variables
 
+        import java.util.Random;
+        import android.widget.Button;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.support.constraint.ConstraintLayout;
+        import android.view.Window;
+        
+        ...
+
         iBLogo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -14,9 +23,19 @@
                         DrawerLayout.LayoutParams.FILL_PARENT,
                         DrawerLayout.LayoutParams.FILL_PARENT);
 
+                Random rand = new Random(); // random number generator.
+                int rndInt = rand.nextInt(5) + 1; // we have 5 images so we generate 5 numbers.
+
+                String imgName = "img" + rndInt;
+                int id = getResources().getIdentifier(imgName, "drawable", getPackageName());
+                popupImage.setImageResource(id); // adding random image resource to image.
+
                 ConstraintLayout clk = (ConstraintLayout) popupView.findViewById(R.id.clNew);
                 TextView popupText = (TextView) popupView.findViewById(R.id.textViewPop);
                 ImageView popupImage = (ImageView) popupView.findViewById(R.id.imageViewPop);
+
+                popupText.setText("hello");
+
 
                 clk.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -26,12 +45,6 @@
                     }
                 });
 
-                popupImage.setImageResource(R.drawable.ic_launcher);
-
-                popupText.setText("hello");
-
-
-
                 /*
                 Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
                 btnDismiss.setOnClickListener(new Button.OnClickListener(){
@@ -40,7 +53,7 @@
                     public void onClick(View v){
                         // TODO Auto-generated method stub
                         popupWindow.dismiss();
-                    }});*/
+                }});*/
 
                 popupWindow.showAsDropDown(iBLogo, 50, 50);
             }
